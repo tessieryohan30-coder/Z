@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Le Manuscrit</title>
+  <meta name="description" content="Une petite pièce sombre, une lampe, quelqu'un qui écrit." />
+  <meta name="theme-color" content="#050302" />
+  <link rel="preload" href="fonts/caveat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="scene" aria-label="Une pièce sombre : quelqu'un écrit à son bureau sous une lampe."></canvas>
+
+  <button id="zoe" type="button">je suis Zoé</button>
+
+  <div id="page" role="document" aria-label="Le manuscrit">
+    <div class="paper">
+      <div id="ink" class="ink" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <noscript><p class="noscript">Ce site a besoin de JavaScript pour s'afficher.</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
