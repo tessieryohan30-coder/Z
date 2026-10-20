@@ -9,6 +9,7 @@ import * as T from './textures.js';
 import { createCharacter } from './character.js';
 import * as sfx from './audio.js';
 import { manuscrit } from './manuscrit.js';
+import { demanderCode } from './acces.js';
 
 const v3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const lerp = THREE.MathUtils.lerp;
@@ -882,9 +883,10 @@ async function sequence() {
 
 // ───────────────────────── Démarrage ─────────────────────────
 const btn = document.getElementById('zoe');
-btn.addEventListener('click', () => {
+btn.addEventListener('click', async () => {
   btn.disabled = true;
   document.body.classList.add('started');
+  await demanderCode();
   sequence();
 }, { once: true });
 

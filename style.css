@@ -104,6 +104,71 @@ html, body {
   50% { box-shadow: 0 0 28px rgba(255, 180, 100, 0.16); }
 }
 
+/* ── le code d'accès ── */
+#gate {
+  position: fixed;
+  left: 50%;
+  bottom: max(9vh, calc(env(safe-area-inset-bottom) + 32px));
+  width: min(320px, calc(100vw - 32px));
+  transform: translate(-50%, 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease, transform 1.2s ease, visibility 0s 1.2s;
+}
+.asking #gate {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition: opacity 1.2s ease 0.5s, transform 1.2s ease 0.5s;
+}
+#gate label {
+  font: italic 400 15px / 1 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  letter-spacing: 0.14em;
+  color: rgba(234, 217, 182, 0.7);
+}
+#code {
+  width: 100%;
+  padding: 0.7em 1em;
+  font: 400 26px / 1.1 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  letter-spacing: 0.25em;
+  text-align: center;
+  color: var(--cream);
+  caret-color: #ffcf8a;
+  background: rgba(18, 11, 6, 0.5);
+  border: 1px solid rgba(234, 217, 182, 0.32);
+  border-radius: 2px;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  outline: none;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+#code:focus {
+  border-color: rgba(255, 210, 150, 0.7);
+  box-shadow: 0 0 30px rgba(255, 180, 100, 0.18);
+}
+#gate-msg {
+  min-height: 1.4em;
+  margin: 0;
+  font: italic 400 15px / 1.4 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  color: rgba(234, 200, 160, 0.85);
+}
+#gate.wrong #code {
+  animation: shake 0.45s ease;
+  border-color: rgba(220, 140, 100, 0.6);
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(3px); }
+}
+
 /* ── la page du manuscrit ── */
 #page {
   position: fixed;
